@@ -1,0 +1,4 @@
+# Redirect /Author (uppercase) to /author (lowercase) for all subpaths
+RewriteEngine On
+RewriteCond %{REQUEST_URI} ^/Author(.*)$ [NC]
+RewriteRule ^ /author%1 [R=301,L]
