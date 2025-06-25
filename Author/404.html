@@ -2,20 +2,21 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Billal Hossain | Author</title>
-    <script type="text/javascript">
-      var pathSegmentsToKeep = 1;
-
-      var l = window.location;
-      l.replace(
-        l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
-        l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?/' +
-        l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~') +
-        (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
-        l.hash
-      );
+    <title>Redirecting…</title>
+    <script>
+      // GitHub Pages SPA redirect for /author/ (case-insensitive)
+      var path = window.location.pathname.replace(/^\/Author/i, '/author');
+      var search = window.location.search;
+      var hash = window.location.hash;
+      var newUrl = '/author/' + (path.split('/author/')[1] || '') + search + hash;
+      window.location.replace(newUrl);
     </script>
   </head>
   <body>
+    <h1>Redirecting…</h1>
+    <p>If you are not redirected, <a id="redirect-link" href="#">click here</a>.</p>
+    <script>
+      document.getElementById('redirect-link').href = newUrl;
+    </script>
   </body>
 </html>
